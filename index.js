@@ -1,11 +1,11 @@
 function createTable(n, m) {
-  var table = document.createElement("table");
+  let table = document.createElement("table");
 
-  for (var i = 0; i < n; i++) {
-    var row = table.insertRow();
+  for (let i = 0; i < n; i++) {
+    let row = table.insertRow();
 
-    for (var j = 0; j < m; j++) {
-      var cell = row.insertCell();
+    for (let j = 0; j < m; j++) {
+      let cell = row.insertCell();
       cell.textContent = "Строка " + (i + 1) + ", Ячейка " + (j + 1);
     }
   }
