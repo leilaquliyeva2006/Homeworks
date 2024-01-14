@@ -1,16 +1,31 @@
-function createTable(n, m) {
-  let table = document.createElement("table");
+function handleButtonClick() {
+    // Получаем число от пользователя и проверяем его корректность
+    let userInput;
+    do {
+      userInput = prompt("Введите число от 1 до 10");
+    } while (!isValidInput(userInput));
 
-  for (let i = 0; i < n; i++) {
-    let row = table.insertRow();
+    // Преобразуем введенное значение в число
+    const userNumber = parseInt(userInput, 10);
 
-    for (let j = 0; j < m; j++) {
-      let cell = row.insertCell();
-      cell.textContent = "Строка " + (i + 1) + ", Ячейка " + (j + 1);
+    // Добавляем слушатели с выводом сообщений
+    for (let i = 1; i <= userNumber; i++) {
+      addEventListenerForNumber(i);
     }
   }
 
-  document.body.appendChild(table);
-}
+  // Функция для проверки корректности введенного числа
+  function isValidInput(input) {
+    const parsedInput = parseInt(input, 10);
+    return !isNaN(parsedInput) && parsedInput >= 1 && parsedInput <= 10;
+  }
 
-createTable(3, 4);
+  // Функция для добавления слушателя для конкретного числа
+  function addEventListenerForNumber(number) {
+    document.getElementById('myButton').addEventListener('click', function() {
+      console.log(number);
+    });
+  }
+
+  // Навешиваем основной слушатель на кнопку
+  document.getElementById('myButton').addEventListener('click', handleButtonClick);
