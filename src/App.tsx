@@ -1,8 +1,9 @@
 import './App.css';
-import Timer from './components/Timer/Timer';
+import CheckboxForm from './components/CheckBox/CheckBox';
 const App = () =>{
   return (<>
-    <Timer/></>
+  < CheckboxForm/>
+  </>
   );
 }
 
